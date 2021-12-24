@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799762381847",
+    "project_id": "tipadzentestproject",
+    "storage_bucket": "tipadzentestproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799762381847:android:67a8ebb0f9925a0b467052",
+        "android_client_info": {
+          "package_name": "ru.kiloqky.tipadzen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799762381847-1saktjielaorphmecijsq8s13l3mc253.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWOCXLaoN4_g-9nSfYkhlAigtFqQkiMH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799762381847-1saktjielaorphmecijsq8s13l3mc253.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
