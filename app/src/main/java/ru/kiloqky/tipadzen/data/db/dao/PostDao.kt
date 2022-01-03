@@ -9,7 +9,7 @@ import ru.kiloqky.tipadzen.data.db.entities.PostEntity
 @Dao
 interface PostDao {
 
-    @Query("SELECT * FROM post")
+    @Query("SELECT * FROM post ORDER BY date DESC")
     fun getAll(): Flow<List<PostEntity>>
 
     @Insert(onConflict = IGNORE)
@@ -23,4 +23,10 @@ interface PostDao {
 
     @Update
     suspend fun update(post: PostEntity)
+
+    @Query("DELETE FROM post WHERE sha == :sha")
+    suspend fun deleteById(sha: String)
+
+    @Query("SELECT * FROM post WHERE sha== :sha")
+    suspend fun getById(sha: String): List<PostEntity>
 }

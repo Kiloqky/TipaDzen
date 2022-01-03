@@ -3,23 +3,19 @@ package ru.kiloqky.tipadzen.ui.main
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ru.kiloqky.tipadzen.navigation.cicerone.MainAppNavigator
-import ru.kiloqky.tipadzen.ui.main.interactor.MainInteractor
+import ru.kiloqky.tipadzen.navigation.cicerone.navigationcontroller.NavigationController
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val interactor: MainInteractor
+    private val navController: NavigationController
 ) : ViewModel() {
 
-    fun openRootScreen() {
-        interactor.openRootScreen()
-    }
+    fun openRootScreen() = navController.openRootScreen()
 
-    fun setNavigator(navigator: MainAppNavigator) {
-        interactor.setNavigator(navigator)
-    }
+    fun setNavigator(navigator: MainAppNavigator) = navController.setNavigator(navigator)
 
-    fun removeNavigator() {
-        interactor.removeNavigator()
-    }
+    fun removeNavigator() = navController.removeNavigator()
+
+    fun back() = navController.back()
 }

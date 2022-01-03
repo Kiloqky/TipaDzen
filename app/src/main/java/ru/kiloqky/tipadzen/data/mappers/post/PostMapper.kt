@@ -7,7 +7,7 @@ import ru.kiloqky.tipadzen.model.PostModel
 
 object PostMapper {
     fun entityToModel(postEntity: PostEntity): PostModel =
-        PostModel(postEntity.sha, postEntity.text)
+        PostModel(postEntity.sha, postEntity.title, postEntity.text, postEntity.date)
 
     fun entityToModel(list: List<PostEntity>): List<PostModel> = list.map(::entityToModel)
 

@@ -9,4 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="posts">Посты</string>
+    <string name="add_post">Добавить пост</string>
+    <string name="fragment_add_post_hint_title">Заголовок</string>
+    <string name="fragment_add_post_hint_text">Текст</string>
+    <string name="menu_done">Готово</string>
+    <string name="error_field_is_empty">Все поля должны быть заполнены</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
 </resources>

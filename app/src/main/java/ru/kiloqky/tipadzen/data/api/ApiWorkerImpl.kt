@@ -5,7 +5,6 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import ru.kiloqky.tipadzen.data.db.entities.PostEntity
-import javax.inject.Inject
 
 
 class ApiWorkerImpl(private val reference: DatabaseReference) : ApiWorker {
@@ -17,10 +16,9 @@ class ApiWorkerImpl(private val reference: DatabaseReference) : ApiWorker {
         reference.child("posts").addValueEventListener(valueEventListener)
 
     override suspend fun addPost(postEntity: PostEntity): Task<Void> {
-        val key: String? = reference.child("posts").push().key
         val postValues: Map<String, Any> = postEntity.toMap()
         val childUpdates: MutableMap<String, Any> = HashMap()
-        childUpdates["/posts/$key"] = postValues
+        childUpdates["/posts/${postEntity.sha}"] = postValues
         return reference.updateChildren(childUpdates)
     }
 

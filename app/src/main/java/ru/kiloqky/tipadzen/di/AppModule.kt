@@ -30,6 +30,7 @@ import kotlin.coroutines.CoroutineContext
 object AppModule {
 
     @Provides
+    @Singleton
     fun provideCicerone(): Cicerone<Router> = Cicerone.create()
 
     @Provides
@@ -59,4 +60,7 @@ object AppModule {
     @Provides
     fun provideApiWorker(): ApiWorker =
         ApiWorkerImpl(Firebase.database(BuildConfig.RT_DB_URL).reference)
+
+    @Provides
+    fun provideResources(@ApplicationContext context: Context) = context.resources
 }

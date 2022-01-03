@@ -7,24 +7,33 @@ import androidx.room.PrimaryKey
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 import kotlinx.parcelize.Parcelize
+import java.util.*
 
-@Entity(tableName = "post")
 @Parcelize
+@Entity(tableName = "post")
 @IgnoreExtraProperties
 data class PostEntity(
     @PrimaryKey
     @ColumnInfo(name = "sha")
     val sha: String = "",
 
+    @ColumnInfo(name = "title")
+    val title: String = "",
+
     @ColumnInfo(name = "text")
-    val text: String = ""
+    val text: String = "",
+
+    @ColumnInfo(name = "date")
+    val date: Long = Date().time
 ) : Parcelable {
 
     @Exclude
     fun toMap(): Map<String, Any> =
         mapOf(
             "sha" to sha,
-            "text" to text
+            "title" to title,
+            "text" to text,
+            "date" to date
         )
 
 }

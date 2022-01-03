@@ -3,9 +3,9 @@ package ru.kiloqky.tipadzen.ui.posts.interactor
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import ru.kiloqky.tipadzen.data.api.ApiWorker
@@ -22,6 +22,8 @@ class PostsInteractor @Inject constructor(
 ) {
 
     val postsFlow = appDatabase.postDao().getAll().map { PostMapper.entityToModel(it) }
+
+    val errorFlow = MutableSharedFlow<Throwable>()
 
     fun getPosts() {
         addPostsListener()
@@ -68,19 +70,10 @@ class PostsInteractor @Inject constructor(
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Timber.wtf(error.toException())
+                coroutineScope.launch {
+                    errorFlow.emit(error.toException())
+                }
             }
         })
     }
-
-    fun addPost(sha: String, text: String) =
-        coroutineScope.launch {
-            apiWorker.addPost(PostEntity(sha, text))
-                .addOnCompleteListener {
-                    Timber.i("post is added")
-                }
-                .addOnFailureListener {
-                    Timber.i("post is not added")
-                }
-        }
 }
