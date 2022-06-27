@@ -1,4 +1,4 @@
-package ru.kiloqky.tipadzen.helpers.extensions
+package ru.kiloqky.tipadzen.helpers.methods.extensions
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.flow.Flow

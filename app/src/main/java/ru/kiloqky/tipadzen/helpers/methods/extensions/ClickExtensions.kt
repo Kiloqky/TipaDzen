@@ -1,4 +1,4 @@
-package ru.kiloqky.tipadzen.helpers.extensions
+package ru.kiloqky.tipadzen.helpers.methods.extensions
 
 import android.view.View
 

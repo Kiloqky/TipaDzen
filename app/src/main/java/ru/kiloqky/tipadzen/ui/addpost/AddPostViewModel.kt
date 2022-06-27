@@ -28,11 +28,9 @@ class AddPostViewModel @Inject constructor(
 
     private val workManager = WorkManager.getInstance(context)
 
-    private val _titleFlow = MutableStateFlow("")
-    val titleFlow = _titleFlow.asStateFlow()
+    val titleFlow = MutableStateFlow("")
 
-    private val _textFlow = MutableStateFlow("")
-    val textFlow = _textFlow.asStateFlow()
+    val textFlow = MutableStateFlow("")
 
     private val _uiState: MutableSharedFlow<AddPostState> = MutableSharedFlow(1)
     val uiState = _uiState.asSharedFlow()
@@ -90,8 +88,4 @@ class AddPostViewModel @Inject constructor(
     fun handleSuccess() {
         navController.back()
     }
-
-    fun saveText(text: String) = _textFlow.tryEmit(text)
-
-    fun saveTitle(title: String) = _titleFlow.tryEmit(title)
 }

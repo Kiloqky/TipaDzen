@@ -25,7 +25,6 @@ class NavigationControllerImpl(
     }
 
     override fun navigateToAddPost() {
-        Timber.wtf("navigate to add post")
         router.navigateTo(screens.AddPostScreen())
     }
 
