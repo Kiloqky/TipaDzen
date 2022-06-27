@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
 import ru.kiloqky.tipadzen.R
 import ru.kiloqky.tipadzen.databinding.PostsFragmentBinding
-import ru.kiloqky.tipadzen.helpers.extensions.launchWhenCreated
+import ru.kiloqky.tipadzen.helpers.methods.extensions.launchWhenCreated
 import ru.kiloqky.tipadzen.model.PostModel
 import ru.kiloqky.tipadzen.ui.base.BaseFragment
 import ru.kiloqky.tipadzen.ui.posts.adapter.PostAdapter

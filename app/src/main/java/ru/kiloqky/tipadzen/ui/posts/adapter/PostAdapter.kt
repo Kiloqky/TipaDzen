@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.kiloqky.tipadzen.databinding.ItemPostBinding
-import ru.kiloqky.tipadzen.helpers.extensions.click
-import ru.kiloqky.tipadzen.helpers.extensions.toDateFormat
+import ru.kiloqky.tipadzen.helpers.methods.extensions.click
+import ru.kiloqky.tipadzen.helpers.methods.extensions.toDateFormat
 import ru.kiloqky.tipadzen.model.PostModel
 
 class PostAdapter(private val onItemClicked: (post: PostModel) -> Unit) :

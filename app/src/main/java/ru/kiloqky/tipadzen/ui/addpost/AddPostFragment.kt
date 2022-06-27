@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
 import ru.kiloqky.tipadzen.R
 import ru.kiloqky.tipadzen.databinding.FragmentAddPostBinding
-import ru.kiloqky.tipadzen.helpers.extensions.launchWhenCreated
+import ru.kiloqky.tipadzen.helpers.methods.extensions.launchWhenCreated
 import ru.kiloqky.tipadzen.ui.addpost.state.Error
 import ru.kiloqky.tipadzen.ui.addpost.state.Success
 import ru.kiloqky.tipadzen.ui.addpost.state.Warning
@@ -49,12 +49,6 @@ class AddPostFragment : BaseFragment(R.layout.fragment_add_post) {
         }.launchWhenCreated(viewLifecycleOwner)
 
         return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.editableText.addTextChangedListener { viewModel.saveText(it.toString()) }
-        binding.editableTitle.addTextChangedListener { viewModel.saveTitle(it.toString()) }
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = viewModel.onItemSelected(item.itemId)

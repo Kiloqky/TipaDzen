@@ -1,4 +1,4 @@
-package ru.kiloqky.tipadzen.helpers.extensions
+package ru.kiloqky.tipadzen.helpers.methods.extensions
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
